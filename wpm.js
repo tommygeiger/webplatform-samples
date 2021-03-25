@@ -87,7 +87,7 @@ var recognizing = false;
 var ignore_onend;
 var start_timestamp;
 
-// Vars
+//Wpm vars
 var wpm_interval;
 var wc_runningsum = 0;
 var wc_active = 0;
@@ -96,7 +96,6 @@ var wc_list = [];
 
 if (!('webkitSpeechRecognition' in window)) {
     upgrade();
-
 } else {
     start_button.style.display = 'inline-block';
     var recognition = new webkitSpeechRecognition();
@@ -108,8 +107,8 @@ if (!('webkitSpeechRecognition' in window)) {
         showInfo('info_speak_now');
         start_img.src = 'assets/mic-animate.gif';
 
-        //Set Interval
-        wpm_interval = setInterval(do_wpm, 1000);
+        //Set Interval to run every 1 second
+        wpm_interval = setInterval(doWpm, 1000);
     };
 
     recognition.onerror = function (event) {
@@ -136,7 +135,7 @@ if (!('webkitSpeechRecognition' in window)) {
     recognition.onend = function () {
         recognizing = false;
 
-        //Clear Interval
+        //End Interval
         clearInterval(wpm_interval);
 
         if (ignore_onend) {
@@ -172,8 +171,8 @@ if (!('webkitSpeechRecognition' in window)) {
 }
 
 
-//Called every 1 seconds
-function do_wpm() {
+//Called once a second
+function doWpm() {
 
     //Keep list to N elements
     wc_list.push(wc_active);
@@ -193,9 +192,7 @@ function do_wpm() {
     } else {
         document.getElementById("feedback").innerHTML = "Great job!";
     }
-
 }
-
 
 
 function upgrade() {
@@ -227,7 +224,6 @@ function startButton(event) {
     interim_span.innerHTML = '';
     start_img.src = 'assets/mic-slash.gif';
     showInfo('info_allow');
-    showButtons('none');
     start_timestamp = event.timeStamp;
 }
 

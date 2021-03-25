@@ -12,7 +12,7 @@
 
 <body>
 
-    <h1 class="center" id="headline">Speaking Rate Detection and Feedback</h1>
+    <h1 class="center" id="headline">OK Google</h1>
 
     <!-- Start Recognition -->
     <div id="info">
@@ -50,27 +50,23 @@
 
     <div class="center">
         <div>
-            <p>Words per minute: <span id="wpm">0</span></p>
-            <p id="feedback"></p>
+            <!-- Search bar -->
+            <gcse:search gname="searcher" queryParameterName="term"></gcse:search>
         </div>
-        <br>
         <div id="div_language">
             <select id="select_language" onchange="updateCountry()"></select>
             &nbsp;&nbsp;
             <select id="select_dialect"></select>
         </div>
+        <br>
         <div>
-            <p>
-                Calculate and display the speaking rate of the user in words per minute. Warn the user that they are
-                speaking too slowly when their speaking rate falls under 133 words/minute, and warn them that they are
-                speaking too quickly when they speak at more than 188 words/minute.
-            </p>
             <a href="index.html">Back</a>
         </div>
     </div>
 
     <!-- Custom JS -->
-    <script type="text/javascript" src="wpm.js"></script>
+    <script type="text/javascript" src="ok.js"></script>
+    <script async src="https://cse.google.com/cse.js?cx=ec2cb62a98968ea3c"></script>
 
 </body>
 
