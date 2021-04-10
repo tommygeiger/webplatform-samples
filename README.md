@@ -6,5 +6,6 @@ A series of demos using the Google web speech API, forked from [this repo](https
   2. [Automated Agent](http://tommygeiger.com/webspeech/agent): a mock-up automated customer service agent
   3. [OK Google](http://tommygeiger.com/webspeech/ok): voice controlled Google search
 
-Known Bugs:
+
+Known bugs:
   The Speaking Rate Detection returns incorrect values if the "interim transcript" is revised and contains fewer words than before.
